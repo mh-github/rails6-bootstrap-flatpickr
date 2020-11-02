@@ -1,0 +1,41 @@
+
+
+    <%= render 'form' %>
+
+    <div class="container bg-secondary">
+        <% if @message1.length > 0 %>
+            <span class="text-white"><%= @message1[0] %></span><br/>
+            <span class="text-white"><%= @message1[1] %></span><br/>
+            <% @message1[2..-1].each do |msg|  %>
+                <span class="text-white">&nbsp;&nbsp;--&nbsp;&nbsp;<%= msg %></span><br/>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="container bg-warning">
+        <% if @message2.length > 0 %>
+            <span class="text-white"><%= @message2[0] %></span><br/>
+            <% @message2[1..-1].each do |msg|  %>
+                <span class="text-white">&nbsp;&nbsp;--&nbsp;&nbsp;<%= msg %></span><br/>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="container bg-secondary">
+        <% if @message3.length > 0 %>
+            <span class="text-white"><%= @message3[0] %></span><br/>
+            <span class="text-white"><%= @message3[1] %></span><br/>
+            <% @message3[2..-1].each do |msg|  %>
+                <span class="text-white">&nbsp;&nbsp;--&nbsp;&nbsp;<%= msg %></span><br/>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="container bg-warning">
+        <% if @message4.length > 0 %>
+            <span class="text-white"><%= @message4[0] %></span><br/>
+            <% @message4[1..-1].each do |msg|  %>
+                <span class="text-white">&nbsp;&nbsp;--&nbsp;&nbsp;<%= msg %></span><br/>
+            <% end %>
+        <% end %>
+    </div>

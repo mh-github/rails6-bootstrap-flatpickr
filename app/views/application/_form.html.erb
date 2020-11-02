@@ -1,0 +1,30 @@
+<div class="container bg-primary">
+
+    <h1>Give Your Dates</h1>
+
+    <%= form_with(url: "/process_dates") do %>
+        <div class="row">
+            <div class="border">
+                <%= text_field_tag 'first_date', "Select Date One", class: 'flatpickr' %>
+            </div>
+            <div class="col-md-auto">&nbsp;&nbsp;&nbsp;</div>
+            <div class="border">
+                <%= text_field_tag 'second_date', "Select Date Two", class: 'flatpickr' %>
+            </div>
+        </div>
+
+        <div class="row"><div>&nbsp;</div></div>
+
+        <div class="row">
+            <div>
+                <%= submit_tag("Hist", class: "btn btn-secondary", data: {tooltip_display: :true, placement: :bottom}, title: "Historical Events")  %>
+            </div>
+            <div class="col-md-auto">&nbsp;</div>
+            <div>
+                <%= submit_tag("Diff", class: "btn btn-secondary", data: {tooltip_display: :true, placement: :bottom}, title: "Difference in days")  %>
+            </div>
+        </div>
+        <div class="col-md-auto">&nbsp;&nbsp;&nbsp;</div>
+       
+    <% end %>
+</div>
