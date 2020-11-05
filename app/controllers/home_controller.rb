@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 
         msg_arr = []
         url = "http://numbersapi.com/" + aDate[5..6] + "/" + aDate[8..9] + "/date"
-        7.times do
+        5.times do
             uri = URI.parse(url)
             response = Net::HTTP.get_response(uri)
             msg_arr << response.body
@@ -44,7 +44,7 @@ class HomeController < ApplicationController
 
         msg_arr = []
         url = "http://numbersapi.com/" + aDate[0..3] + "/year"
-        7.times do
+        5.times do
             uri = URI.parse(url)
             response = Net::HTTP.get_response(uri)
             msg_arr << response.body
@@ -102,6 +102,8 @@ class HomeController < ApplicationController
                 puts days.to_i
                 @@message5 << "Dates entered are #{date_one} and #{date_two}"
                 @@message5 << "Number of days between the two dates is #{days.to_i.abs}"
+            else
+                @@message5 << "Input two valid dates please."
             end
         end
 
