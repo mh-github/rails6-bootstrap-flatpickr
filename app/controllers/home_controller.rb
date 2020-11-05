@@ -99,19 +99,13 @@ class HomeController < ApplicationController
         else if params[:commit] == "Diff"
             if date_one_valid && date_two_valid
                 days = Date.strptime(date_one,'%Y-%m-%d') - Date.strptime(date_two,'%Y-%m-%d')
-                puts days.to_i
+
                 @@message5 << "Dates entered are #{date_one} and #{date_two}"
                 @@message5 << "Number of days between the two dates is #{days.to_i.abs}"
             else
                 @@message5 << "Input two valid dates please."
             end
         end
-
-        puts @@message1
-        puts @@message2
-        puts @@message3
-        puts @@message4
-        puts @@message5
 
         redirect_to action: :display
     end
