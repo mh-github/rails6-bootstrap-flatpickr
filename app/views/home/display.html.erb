@@ -12,7 +12,7 @@
         <% end %>
     </div>
 
-    <div class="container bg-warning">
+    <div class="container bg-info">
         <% if @message2.length > 0 %>
             <span class="text-white"><%= @message2[0] %></span><br/>
             <% @message2[1..-1].each do |msg|  %>
@@ -31,11 +31,18 @@
         <% end %>
     </div>
 
-    <div class="container bg-warning">
+    <div class="container bg-info">
         <% if @message4.length > 0 %>
             <span class="text-white"><%= @message4[0] %></span><br/>
             <% @message4[1..-1].each do |msg|  %>
                 <span class="text-white">&nbsp;&nbsp;--&nbsp;&nbsp;<%= msg %></span><br/>
             <% end %>
+        <% end %>
+    </div>
+
+    <div class="container bg-secondary">
+        <% if @message5.length > 0 %>
+            <span class="text-white"><%= @message5[0] %></span><br/>
+            <span class="text-white"><%= @message5[1] %></span><br/>
         <% end %>
     </div>

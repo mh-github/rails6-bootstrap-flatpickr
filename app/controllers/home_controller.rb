@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     @@message2 = []
     @@message3 = []
     @@message4 = []
+    @@message5 = []
+
     def index
 
     end
@@ -20,7 +22,7 @@ class HomeController < ApplicationController
 
         msg_arr = []
         url = "http://numbersapi.com/" + aDate[5..6] + "/" + aDate[8..9] + "/date"
-        10.times do
+        7.times do
             uri = URI.parse(url)
             response = Net::HTTP.get_response(uri)
             msg_arr << response.body
@@ -39,9 +41,10 @@ class HomeController < ApplicationController
     end
 
     def get_year_history aDate
+
         msg_arr = []
         url = "http://numbersapi.com/" + aDate[0..3] + "/year"
-        10.times do
+        7.times do
             uri = URI.parse(url)
             response = Net::HTTP.get_response(uri)
             msg_arr << response.body
@@ -59,10 +62,12 @@ class HomeController < ApplicationController
     end
 
     def process_dates
+
         @@message1 = []
         @@message2 = []
         @@message3 = []
         @@message4 = []
+        @@message5 = []
         date_one  = params[:first_date]
         date_two  = params[:second_date]
 
@@ -95,7 +100,8 @@ class HomeController < ApplicationController
             if date_one_valid && date_two_valid
                 days = Date.strptime(date_one,'%Y-%m-%d') - Date.strptime(date_two,'%Y-%m-%d')
                 puts days.to_i
-                @@message1 << "Number of days between the two dates is #{days.to_i.abs}"
+                @@message5 << "Dates entered are #{date_one} and #{date_two}"
+                @@message5 << "Number of days between the two dates is #{days.to_i.abs}"
             end
         end
 
@@ -103,6 +109,7 @@ class HomeController < ApplicationController
         puts @@message2
         puts @@message3
         puts @@message4
+        puts @@message5
 
         redirect_to action: :display
     end
@@ -112,5 +119,6 @@ class HomeController < ApplicationController
         @message2 = @@message2
         @message3 = @@message3
         @message4 = @@message4
+        @message5 = @@message5
     end
 end
