@@ -84,7 +84,7 @@ class HomeController < ApplicationController
 
                 
             end
-            if date_two_valid
+            if date_two_valid && (date_one != date_two)
                 if date_two[5..9] != date_one[5..9]
                     @@message3 = get_date_history(date_two)
                 end
@@ -95,8 +95,7 @@ class HomeController < ApplicationController
                     @@message4 = get_year_history(date_two)
                 end
             end           
-        end
-        else if params[:commit] == "Diff"
+        elsif params[:commit] == "Diff"
             if date_one_valid && date_two_valid
                 days = Date.strptime(date_one,'%Y-%m-%d') - Date.strptime(date_two,'%Y-%m-%d')
 
